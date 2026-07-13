@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, Variants } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
