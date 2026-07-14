@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 interface BestSeller {
@@ -44,24 +45,37 @@ const bestSellers: BestSeller[] = [
 const BestSellers = () => {
   return (
     <section className="py-20 md:py-32 px-6 md:px-8 bg-background">
-      <div className="max-w-7xl mx-auto mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-7xl mx-auto mb-16"
+      >
         <div className="text-center mb-4">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase">
-            Top Rated
-          </p>
+          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Top Rated</p>
         </div>
-        <h2 className="text-4xl md:text-5xl font-serif font-bold text-center text-foreground">
-          Best Sellers
-        </h2>
-      </div>
+        <h2 className="text-4xl md:text-5xl font-serif font-bold text-center text-foreground">Best Sellers</h2>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto overflow-x-auto pb-4 scrollbar-hide">
         <div className="flex gap-8 min-w-min">
-          {bestSellers.map((item) => (
-            <div key={item.id} className="group flex-shrink-0 w-72">
+          {bestSellers.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group flex-shrink-0 w-72"
+            >
               <div className="rounded-xl overflow-hidden bg-card border border-border hover:border-accent transition-colors duration-300">
                 <div className="relative h-72 bg-muted overflow-hidden">
-                  <div className="w-full h-full">
+                  <motion.div
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full h-full"
+                  >
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -69,7 +83,7 @@ const BestSellers = () => {
                       className="object-cover"
                       quality={85}
                     />
-                  </div>
+                  </motion.div>
 
                   <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold">
                     ★ {item.rating}
@@ -77,19 +91,15 @@ const BestSellers = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {item.name}
-                  </h3>
-                  <p className="text-accent text-xl font-bold mb-4">
-                    {item.price}
-                  </p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{item.name}</h3>
+                  <p className="text-accent text-xl font-bold mb-4">{item.price}</p>
 
                   <button className="w-full py-2 px-4 bg-accent/10 text-accent rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300">
                     Add to Cart
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
