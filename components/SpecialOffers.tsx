@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
 
-// Offer expiration date (YYYY-MM-DDTHH:MM:SS)
+// Offer expiration date
 const OFFER_END_DATE = new Date("2026-08-01T23:59:59");
 
 export default function SpecialOffers() {
@@ -44,7 +44,7 @@ export default function SpecialOffers() {
       setTimeLeft({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
         hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
         ),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
@@ -55,8 +55,7 @@ export default function SpecialOffers() {
   }, []);
 
   // Add a leading zero when needed
-  const formatNumber = (value: number) =>
-    value.toString().padStart(2, "0");
+  const formatNumber = (value: number) => value.toString().padStart(2, "0");
 
   // Timer values
   const timerItems = [
@@ -87,7 +86,6 @@ export default function SpecialOffers() {
         viewport={{ once: true }}
         className="max-w-4xl mx-auto"
       >
-        {/* Main card */}
         <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-accent/20 via-accent/5 to-transparent border border-accent/30 p-12 md:p-16">
           {/* Background glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -mr-48 -mt-48" />
@@ -108,8 +106,7 @@ export default function SpecialOffers() {
 
             {/* Heading */}
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-              Exclusive Launch{" "}
-              <span className="text-accent">Promotion</span>
+              Exclusive Launch <span className="text-accent">Promotion</span>
             </h2>
 
             {/* Description */}
@@ -123,11 +120,7 @@ export default function SpecialOffers() {
               {timerItems.map((item, index) => (
                 <motion.div
                   key={index}
-                  animate={
-                    isExpired
-                      ? { scale: 1 }
-                      : { scale: [1, 1.05, 1] }
-                  }
+                  animate={isExpired ? { scale: 1 } : { scale: [1, 1.05, 1] }}
                   transition={{
                     duration: 2,
                     delay: index * 0.1,
@@ -157,9 +150,7 @@ export default function SpecialOffers() {
               }`}
             >
               <span className="relative z-10">
-                {isExpired
-                  ? "Offer Expired"
-                  : "Claim Your Discount Now"}
+                {isExpired ? "Offer Expired" : "Claim Your Discount Now"}
               </span>
 
               {!isExpired && (
