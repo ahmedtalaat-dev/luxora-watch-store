@@ -1,7 +1,7 @@
+import BestSellers from "@/components/BestSellers";
 import FeaturedWatches from "@/components/FeaturedWatches";
 import HeroSection from "@/components/HeroSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <FeaturedWatches />
       <WhyChooseUs />
+      <BestSellers />
     </main>
   );
 }
