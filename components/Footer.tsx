@@ -74,7 +74,7 @@ export default function Footer() {
           {/* Developer : Ahmed Talaat */}
           <div className="mt-10 border-t border-border pt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              Developed with ❤️ by{" "}
+              Developed with 💛 by{" "}
               <span className="font-semibold text-accent">Ahmed Talaat</span>
             </p>
 
