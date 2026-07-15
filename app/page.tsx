@@ -3,6 +3,7 @@ import BrandStory from "@/components/BrandStory";
 import ContactSection from "@/components/Contact";
 import FAQSection from "@/components/FAQ";
 import FeaturedWatches from "@/components/FeaturedWatches";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import SpecialOffers from "@/components/SpecialOffers";
 import Testimonials from "@/components/Testimonials ";
@@ -20,6 +21,7 @@ export default function Home() {
       <SpecialOffers />
       <FAQSection />
       <ContactSection />
+      <Footer />
     </main>
   );
 }
