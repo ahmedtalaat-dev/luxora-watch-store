@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -37,25 +38,29 @@ const Footer = () => {
           {/* Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
             {/* Brand Column */}
-            <div>
-              <h3 className="text-2xl font-serif font-bold text-accent mb-4">
-                LUXORA
-              </h3>
-
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-serif font-bold text-accent mb-4">LUXORA</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Curating the world&apos;s finest luxury watches since 1985.
-                Authentic, premium quality timepieces for the discerning
-                collector.
+                Curating the world&apos;s finest luxury watches since 1985. Authentic, premium quality timepieces for
+                the discerning collector.
               </p>
-            </div>
+            </motion.div>
 
             {/* Footer Links */}
-            {Object.entries(footerLinks).map((column) => (
-              <div key={column[0]}>
-                <h4 className="font-semibold text-foreground mb-4">
-                  {column[0]}
-                </h4>
-
+            {Object.entries(footerLinks).map((column, idx) => (
+              <motion.div
+                key={column[0]}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: (idx + 1) * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h4 className="font-semibold text-foreground mb-4">{column[0]}</h4>
                 <ul className="space-y-3">
                   {column[1].map((link) => (
                     <li key={link.label}>
@@ -68,7 +73,7 @@ const Footer = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -76,10 +81,15 @@ const Footer = () => {
           <div className="border-t border-border my-12" />
 
           {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-muted-foreground text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Luxora. All rights reserved. Luxury
-              watches authenticated with precision.
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row items-center justify-between gap-6"
+          >
+            <p className="text-muted-foreground text-sm">
+              © {new Date().getFullYear()} Luxora. All rights reserved. Luxury watches authenticated with precision.
             </p>
 
             <div className="flex gap-6">
@@ -93,17 +103,20 @@ const Footer = () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll to Top Button */}
-      <button
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className="fixed bottom-8 right-8 w-12 h-12 rounded-lg bg-accent text-accent-foreground flex items-center justify-center font-bold hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 z-40"
       >
         ↑
-      </button>
+      </motion.button>
     </footer>
   )
 }
