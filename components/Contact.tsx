@@ -1,13 +1,12 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, MessageCircle, Send, Share2, Heart } from 'lucide-react'
-import { useState } from 'react'
+import { contactMethods, socialLinks } from "@/data/contact";
+import { motion, Variants } from "framer-motion";
+import ContactForm from "./ContactForm";
 
-const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-
-  const containerVariants = {
+export default function ContactSection() {
+  /* Animation variants */
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -16,153 +15,110 @@ const ContactSection = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
-  }
-
-  const contactMethods = [
-    { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567' },
-    { icon: Mail, label: 'Email', value: 'hello@luxora.com' },
-    { icon: MapPin, label: 'Address', value: '123 Luxury Street, New York, NY 10001' },
-  ]
-
-  const socialLinks = [
-    { icon: MessageCircle, href: '#' },
-    { icon: Send, href: '#' },
-    { icon: Share2, href: '#' },
-    { icon: Heart, href: '#' },
-  ]
+  };
 
   return (
-    <section className="py-20 md:py-32 px-6 md:px-8 bg-card border-t border-border">
+    <section className="border-t border-border bg-card px-6 py-20 md:px-8 md:py-32">
+      {/* Section heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto mb-16"
+        className="mx-auto mb-16 max-w-7xl"
       >
-        <div className="text-center mb-4">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Get in Touch</p>
+        <div className="mb-4 text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+            Get in Touch
+          </p>
         </div>
-        <h2 className="text-4xl md:text-5xl font-serif font-bold text-center text-foreground">
+
+        <h2 className="text-center font-serif text-4xl font-bold text-foreground md:text-5xl">
           Contact Us
         </h2>
       </motion.div>
 
+      {/* Contact content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12"
+        className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-3"
       >
+        {/* Contact information */}
         <motion.div variants={itemVariants} className="space-y-8">
           {contactMethods.map((method, index) => {
-            const Icon = method.icon
+            const Icon = method.icon;
+
             return (
               <motion.div
                 key={index}
                 whileHover={{ x: 8 }}
-                className="flex gap-4 cursor-pointer"
+                className="flex cursor-pointer gap-4"
               >
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-6 h-6 text-accent" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                  <Icon className="h-6 w-6 text-accent" />
                 </div>
+
                 <div>
-                  <p className="font-semibold text-foreground">{method.label}</p>
+                  <p className="font-semibold text-foreground">
+                    {method.label}
+                  </p>
+
                   <p className="text-muted-foreground">{method.value}</p>
                 </div>
               </motion.div>
-            )
+            );
           })}
 
-          <div className="pt-8 border-t border-border">
-            <p className="text-sm text-muted-foreground mb-4 font-semibold">Follow Us</p>
+          {/* Social links */}
+          <div className="border-t border-border pt-8">
+            <p className="mb-4 text-sm font-semibold text-muted-foreground">
+              Follow Us
+            </p>
+
             <div className="flex gap-4">
               {socialLinks.map((link, index) => {
-                const Icon = link.icon
+                const Icon = link.icon;
+
                 return (
                   <motion.a
                     key={index}
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -4 }}
-                    className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="h-5 w-5" />
                   </motion.a>
-                )
+                );
               })}
             </div>
           </div>
         </motion.div>
 
+        {/* Contact form */}
         <motion.div
           variants={itemVariants}
-          className="lg:col-span-2 bg-background border border-border rounded-xl p-8"
+          className="rounded-xl border border-border bg-background p-8 lg:col-span-2"
         >
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Your name"
-                  className="w-full px-4 py-3 bg-muted/30 border border-border rounded-lg focus:outline-none focus:border-accent transition-colors duration-300 text-foreground placeholder:text-muted-foreground"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="your@email.com"
-                  className="w-full px-4 py-3 bg-muted/30 border border-border rounded-lg focus:outline-none focus:border-accent transition-colors duration-300 text-foreground placeholder:text-muted-foreground"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={5}
-                placeholder="Tell us about your inquiry..."
-                className="w-full px-4 py-3 bg-muted/30 border border-border rounded-lg focus:outline-none focus:border-accent transition-colors duration-300 text-foreground placeholder:text-muted-foreground resize-none"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full py-4 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/30 transition-all duration-300"
-            >
-              Send Message
-            </button>
-          </form>
+          <ContactForm />
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
-
-export default ContactSection
