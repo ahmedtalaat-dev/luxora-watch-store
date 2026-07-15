@@ -1,124 +1,137 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+import { footerLinks } from "@/data/footer";
+import { FaGithub, FaWhatsapp, FaGlobe, FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
 
-const Footer = () => {
-  const footerLinks = {
-    Shop: [
-      { label: 'New Arrivals', href: '#' },
-      { label: 'Best Sellers', href: '#' },
-      { label: 'Collections', href: '#' },
-      { label: 'Brands', href: '#' },
-    ],
-    Support: [
-      { label: 'FAQ', href: '#' },
-      { label: 'Shipping Info', href: '#' },
-      { label: 'Returns', href: '#' },
-      { label: 'Contact Us', href: '#' },
-    ],
-    Company: [
-      { label: 'About Us', href: '#' },
-      { label: 'Blog', href: '#' },
-      { label: 'Careers', href: '#' },
-      { label: 'Press', href: '#' },
-    ],
-    Legal: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
-      { label: 'Warranty', href: '#' },
-      { label: 'Authenticity Guarantee', href: '#' },
-    ],
-  }
-
+export default function Footer() {
   return (
     <footer className="bg-background border-t border-border">
-      <div className="px-6 md:px-8 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto">
-          {/* Footer Content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-            {/* Brand Column */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-serif font-bold text-accent mb-4">LUXORA</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Curating the world&apos;s finest luxury watches since 1985. Authentic, premium quality timepieces for
-                the discerning collector.
-              </p>
-            </motion.div>
+      <div className="px-6 py-16 md:px-8 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          {/* Footer content */}
+          <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
+            {/* Brand section */}
+            <div>
+              <h3 className="mb-4 font-serif text-2xl font-bold text-accent">
+                LUXORA
+              </h3>
 
-            {/* Footer Links */}
-            {Object.entries(footerLinks).map((column, idx) => (
-              <motion.div
-                key={column[0]}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: (idx + 1) * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h4 className="font-semibold text-foreground mb-4">{column[0]}</h4>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Curating the world&apos;s finest luxury watches since 1985.
+                Authentic, premium quality timepieces for the discerning
+                collector.
+              </p>
+            </div>
+
+            {/* Footer links */}
+            {Object.entries(footerLinks).map((column) => (
+              <div key={column[0]}>
+                <h4 className="mb-4 font-semibold text-foreground">
+                  {column[0]}
+                </h4>
+
                 <ul className="space-y-3">
                   {column[1].map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-muted-foreground hover:text-accent transition-colors duration-300 text-sm"
+                        className="text-sm text-muted-foreground transition-colors duration-300 hover:text-accent"
                       >
                         {link.label}
                       </Link>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Divider */}
-          <div className="border-t border-border my-12" />
+          <div className="my-12 border-t border-border" />
 
-          {/* Bottom Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row items-center justify-between gap-6"
-          >
-            <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Luxora. All rights reserved. Luxury watches authenticated with precision.
+          {/* Footer bottom section */}
+          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+            <p className="text-center text-sm text-muted-foreground md:text-left">
+              © {new Date().getFullYear()} Luxora. All rights reserved. Luxury
+              watches authenticated with precision.
             </p>
 
+            {/* Legal links */}
             <div className="flex gap-6">
-              {['Privacy', 'Terms', 'Cookies'].map((item) => (
+              {["Privacy", "Terms", "Cookies"].map((item) => (
                 <Link
                   key={item}
                   href="#"
-                  className="text-muted-foreground hover:text-accent transition-colors duration-300 text-sm"
+                  className="text-sm text-muted-foreground transition-colors duration-300 hover:text-accent"
                 >
                   {item}
                 </Link>
               ))}
             </div>
-          </motion.div>
+          </div>
+
+          {/* Developer : Ahmed Talaat */}
+          <div className="mt-10 border-t border-border pt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              Developed with ❤️ by{" "}
+              <span className="font-semibold text-accent">Ahmed Talaat</span>
+            </p>
+
+            {/* Developer social links */}
+            <div className="mt-4 flex justify-center gap-4">
+              <Link
+                href="https://www.linkedin.com/in/ahmedtalaat-dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-muted-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
+              >
+                <FaLinkedinIn className="h-5 w-5" />
+              </Link>
+
+              <Link
+                href="https://github.com/ahmedtalaat-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-muted-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
+              >
+                <FaGithub className="h-5 w-5" />
+              </Link>
+
+              <Link
+                href="https://at-portfolio-35.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Portfolio"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-muted-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
+              >
+                <FaGlobe className="h-5 w-5" />
+              </Link>
+
+              <Link
+                href="https://wa.me/201104894017"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-muted-foreground transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
+              >
+                <FaWhatsapp className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      <motion.button
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 w-12 h-12 rounded-lg bg-accent text-accent-foreground flex items-center justify-center font-bold hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 z-40"
+      {/* Scroll to top button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Scroll to top"
+        className="fixed bottom-8 right-8 z-40 flex h-12 w-12 items-center justify-center rounded-lg bg-accent font-bold text-accent-foreground transition-all duration-300 hover:shadow-lg hover:shadow-accent/30"
       >
         ↑
-      </motion.button>
+      </button>
     </footer>
-  )
+  );
 }
-
-export default Footer
