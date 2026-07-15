@@ -1,5 +1,6 @@
 import BestSellers from "@/components/BestSellers";
 import BrandStory from "@/components/BrandStory";
+import FAQSection from "@/components/FAQ";
 import FeaturedWatches from "@/components/FeaturedWatches";
 import HeroSection from "@/components/HeroSection";
 import SpecialOffers from "@/components/SpecialOffers";
@@ -16,6 +17,7 @@ export default function Home() {
       <BrandStory />
       <Testimonials />
       <SpecialOffers />
+      <FAQSection />
     </main>
   );
 }
