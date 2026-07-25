@@ -12,8 +12,24 @@ export const contactMethods = [
 ];
 
 export const socialLinks = [
-  { icon: FaFacebookF, href: "https://facebook.com" },
-  { icon: FaInstagram, href: "https://instagram.com" },
-  { icon: FaTiktok, href: "https://tiktok.com" },
-  { icon: FaTwitter, href: "https://x.com" },
+  {
+    label: "Facebook",
+    icon: FaFacebookF,
+    href: "https://facebook.com",
+  },
+  {
+    label: "Instagram",
+    icon: FaInstagram,
+    href: "https://instagram.com",
+  },
+  {
+    label: "TikTok",
+    icon: FaTiktok,
+    href: "https://tiktok.com",
+  },
+  {
+    label: "X (Twitter)",
+    icon: FaTwitter,
+    href: "https://x.com",
+  },
 ];

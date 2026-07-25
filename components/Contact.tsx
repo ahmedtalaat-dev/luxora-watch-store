@@ -100,10 +100,11 @@ export default function ContactSection() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={link.label}
                     whileHover={{ y: -4 }}
                     className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 transition-colors duration-300 hover:bg-accent hover:text-accent-foreground"
                   >
-                    <Icon className="h-5 w-5" />
+                    <Icon className="h-5 w-5" aria-hidden="true" />
                   </motion.a>
                 );
               })}
