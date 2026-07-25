@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⌚ Luxora — Luxury Timepieces
 
-## Getting Started
+> **Timeless Elegance on Your Wrist**  
+> A high-performance, modern landing page for showcasing exquisite, hand-crafted luxury watches.
 
-First, run the development server:
+![Luxora Preview](./public/og-image.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📌 About The Project
+
+**Luxora** is a landing page built to present fine luxury watches with precision and artistry. It delivers a premium shopping experience for watch collectors by highlighting featured timepieces, brand legacy, client reviews, promotional countdowns, and customer support channels.
+
+---
+
+## ✨ Features
+
+* **Hero Banner:** Dynamic entry section with direct CTAs and key brand guarantees (Free Shipping, Lifetime Warranty).
+* **Featured Collection:** Clean grid displaying handpicked luxury watches with pricing and detail triggers.
+* **Why Choose Us:** Section highlighting authenticity guarantees, secure shipping, and warranty protection.
+* **Best Sellers:** Top-rated timepieces with customer ratings and quick add-to-cart actions.
+* **Our Story & Metrics:** Brand history and statistical counters ($38+$ years in business, $10K+$ customers).
+* **Client Testimonials:** Highlighting real collector experiences and reviews.
+* **Limited-Time Offer:** Live countdown timer featuring exclusive promotional discounts.
+* **Interactive FAQ:** Clean accordion answering common customer inquiries.
+* **Contact & Inquiry:** Contact form paired with direct contact info and physical address.
+
+---
+
+## 🛠️ Tech Stack
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* Lucide React
+* Framer Motion
+
+---
+
+## 📂 Project Structure
+
+```text
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+│   ├── sections/
+│   └── ...
+├── data/
+├── public/
+│   ├── icon.png
+│   ├── og-image.png
+│   └── watches/
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 👨‍💻 Author > Ahmed Talaat
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* 🌐 **Portfolio:** [at-portfolio-35.vercel.app](https://at-portfolio-35.vercel.app/)
+* 💼 **LinkedIn:** [ahmedtalaat-dev](https://www.linkedin.com/in/ahmedtalaat-dev/)
+* 🐙 **GitHub:** [ahmedtalaat-dev](https://github.com/ahmedtalaat-dev)
+* 🏆 **Codeforces:** [Codeforces Profile](https://codeforces.com/profile/ahmedtalaat-dev)
