@@ -37,8 +37,6 @@ export const metadata: Metadata = {
     },
   ],
 
-  creator: "Ahmed Talaat",
-
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -49,7 +47,7 @@ export const metadata: Metadata = {
     title: "Luxora | Luxury Watches & Timeless Elegance",
     description:
       "Explore Luxora's premium collection of luxury watches crafted for those who appreciate elegance, precision, and timeless style.",
-    url: "https://luxora.com",
+    url: "https://luxora-watch-store.vercel.app/",
     siteName: "Luxora",
     images: [
       {
