@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { bestSellers } from "@/data/bestSellers";
-import BestSellerCard from "./BestSellerCard";
+import BestSellerCard from "../BestSellerCard";
 
 export default function BestSellers() {
   return (

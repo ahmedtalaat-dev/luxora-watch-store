@@ -2,7 +2,7 @@
 
 import { watches } from "@/data/watches";
 import { motion, Variants } from "framer-motion";
-import WatchCard from "./WatchCard";
+import WatchCard from "../WatchCard";
 
 // Animation variants
 const containerVariants: Variants = {

@@ -9,28 +9,28 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "James Mitchell",
+    name: "Ahmed Talaat",
     title: "Business Executive",
     text: "Luxora provided an exceptional experience. The authentication process was thorough, and the delivery was secure. My new Rolex is flawless.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sarah Chen",
+    name: "Amr Salem",
     title: "Watch Collector",
     text: "After years of collecting, I can confidently say Luxora understands fine timepieces. Their curation is impeccable and their expertise invaluable.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Michael Rodriguez",
+    name: "Mona Mohamed",
     title: "Entrepreneur",
     text: "The entire process from selection to delivery was seamless. Their customer service team went above and beyond my expectations.",
     rating: 5,
   },
   {
     id: 4,
-    name: "Emma Thompson",
+    name: "Ali Ahmed",
     title: "Luxury Enthusiast",
     text: "I purchased multiple timepieces from Luxora. Each one has been a testament to their commitment to quality and authenticity.",
     rating: 5,

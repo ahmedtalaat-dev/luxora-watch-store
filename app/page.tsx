@@ -1,13 +1,13 @@
-import BestSellers from "@/components/BestSellers";
-import BrandStory from "@/components/BrandStory";
-import ContactSection from "@/components/Contact";
-import FAQSection from "@/components/FAQ";
-import FeaturedWatches from "@/components/FeaturedWatches";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
-import SpecialOffers from "@/components/SpecialOffers";
-import Testimonials from "@/components/Testimonials ";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import BestSellers from "@/components/sections/BestSellers";
+import BrandStory from "@/components/sections/BrandStory";
+import ContactSection from "@/components/sections/Contact";
+import FAQSection from "@/components/sections/FAQ";
+import FeaturedWatches from "@/components/sections/FeaturedWatches";
+import Footer from "@/components/sections/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import SpecialOffers from "@/components/sections/SpecialOffers";
+import Testimonials from "@/components/sections/Testimonials ";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
 
 export default function Home() {
   return (

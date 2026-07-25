@@ -2,7 +2,7 @@
 
 import { contactMethods, socialLinks } from "@/data/contact";
 import { motion, Variants } from "framer-motion";
-import ContactForm from "./ContactForm";
+import ContactForm from "../ContactForm";
 
 export default function ContactSection() {
   /* Animation variants */
